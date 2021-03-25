@@ -9,6 +9,7 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class PokemonPage implements OnInit {
   public pokemons: Array<any>;
+  public pokemon: Array<any>;
 
   constructor(private activatedRoute: ActivatedRoute, private dades: ApiServiceService) { }
 
@@ -16,12 +17,17 @@ export class PokemonPage implements OnInit {
     //this.pokemon = this.activatedRoute.snapshot.paramMap.get('id');
     this.dades.getPokemons().subscribe(
       (data: any) => {
-       // this.loading = false;
        if (data.results){
         this.pokemons = data.results;
-        console.log(this.pokemons)
        }
+      }
+    )
 
+    this.dades.getPokemon("pokemon").subscribe(
+      (data: any) => {
+       if (data.results){
+        this.pokemon = data.results;
+       }
       }
     )
   }

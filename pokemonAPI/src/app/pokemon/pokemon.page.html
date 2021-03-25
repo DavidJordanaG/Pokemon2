@@ -23,8 +23,14 @@
   <!--<p>{{pokemons|json}}</p>-->
   <p *ngFor="let p of pokemons">
     {{p.name}}
-    <img src="{{p.url}}" alt="">
+    
+    {{p.pokemon.back_shiny}}
+
+    
+    
+    
   </p>
+
 
 
 </ion-content>
