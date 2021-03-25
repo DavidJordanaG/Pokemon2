@@ -31,5 +31,12 @@ export class PokemonPage implements OnInit {
       }
     )
   }
+  
+  IMGSR(p:any){
 
+    var urlp =p.url;
+    var splitted = urlp.split('/')
+    var source= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/'+splitted[6]+'.png'
+    return source;
+  }
 }
