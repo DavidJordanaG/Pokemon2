@@ -7,7 +7,13 @@ import { HttpClient } from '@angular/common/http';
 export class ApiServiceService {
 
   constructor(private http: HttpClient) {}
-   getPokemons(pokemon:string){
+   getPokemons(){
+    const apiURL = 'https://pokeapi.co/api/v2/pokemon/';
+
+    return this.http.get(apiURL);
+  }
+
+  getPokemon(pokemon:string){
     const apiURL = 'https://pokeapi.co/api/v2/pokemon/'+pokemon;
 
     return this.http.get(apiURL);
