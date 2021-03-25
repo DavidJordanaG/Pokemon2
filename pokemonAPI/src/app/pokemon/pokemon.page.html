@@ -20,7 +20,11 @@
   </div>
 
   <p>estem a Pokemons</p>
-  <p>{{pokemons|json}}</p>
+  <!--<p>{{pokemons|json}}</p>-->
+  <p *ngFor="let p of pokemons">
+    {{p.name}}
+    <img src="{{p.url}}" alt="">
+  </p>
 
 
 </ion-content>
