@@ -8,14 +8,20 @@ import { ApiServiceService } from '../services/api-service.service';
   styleUrls: ['./detalls.page.scss'],
 })
 export class DetallsPage implements OnInit {
-  public detalls: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private dades: ApiServiceService) { }
+  private info;
+  public pokemons: Array<any>;
+  public pokemon: Array<any>;
+
+  constructor(private route: ActivatedRoute) { 
+
+  }
 
   ngOnInit() {
-    this.detalls = this.activatedRoute.snapshot.paramMap.get('id');
- 
     
-  }
- 
+  this.route.params.subscribe(
+    
+          res => this.info = res.nom
+        );
+}
 }

@@ -11,14 +11,12 @@ export class AppComponent {
     { title: 'Home', url: '/folder/home', icon: 'home' },
     { title: 'Perfil', url: '/folder/perfil', icon: 'person' },
     { title: 'Pokemons', url: '/folder/pokemon', icon: 'ribbon' },
-    //{ title: 'Detalls', url: '/folder/detalls', icon: 'ribbon' },
+    
 
     
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   
   constructor() {}
-
- 
 
 }
