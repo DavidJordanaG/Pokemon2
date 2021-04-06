@@ -36,7 +36,7 @@ export class PokemonPage implements OnInit {
 
     var urlp =p.url;
     var splitted = urlp.split('/')
-    var source= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/'+splitted[6]+'.png'
+    var source= 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+splitted[6]+'.png'
     return source;
   }
 }
