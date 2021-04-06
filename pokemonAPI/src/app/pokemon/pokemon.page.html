@@ -23,10 +23,17 @@
  
   <!--<p>{{pokemons|json}}</p>-->
   <p *ngFor="let p of pokemons">
-    {{p.name}}
-
-
-    <img [src]="IMGSR(p)">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{p.name}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <img [src]="IMGSR(p)">
+        possible descripció
+      </ion-card-content>
+    </ion-card>
+    
 
   
   </p>
