@@ -16,6 +16,6 @@ export class DetallsPage implements OnInit {
     this.detalls = this.activatedRoute.snapshot.paramMap.get('id');
  
     
-
+  }
  
 }
