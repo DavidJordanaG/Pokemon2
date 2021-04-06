@@ -21,12 +21,19 @@
     </div>
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-subtitle>Pokemon</ion-card-subtitle>
+      
         <ion-card-title>{{info}}</ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
-        
+        <ion-fab vertical="center" horizontal="end" slot="fixed">
+          <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        Descripció<br>
+        <ion-button color="light"  href='/folder/pokemon' >Tornar</ion-button>
       </ion-card-content>
     </ion-card>
 
