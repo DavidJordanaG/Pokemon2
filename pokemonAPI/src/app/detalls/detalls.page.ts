@@ -14,6 +14,8 @@ export class DetallsPage implements OnInit {
   public pokemon: Array<any>;
   private dadaPokemon;
 
+  afegint:boolean = false;
+
   constructor(private route: ActivatedRoute, private dades: ApiServiceService) { 
 
   }
@@ -27,7 +29,7 @@ export class DetallsPage implements OnInit {
       }
     )
     
-
+      
     //localStorage.setItem('pokemons', JSON.stringify(this.pokemons));
     //this.dadaPokemon = localStorage.getItem('pokemons');
 
@@ -37,9 +39,17 @@ export class DetallsPage implements OnInit {
     
           res => this.info = res.nom
         );
+
     //guarda dades
     localStorage.setItem('pokemons', this.info);
     this.dadaPokemon = localStorage.getItem('pokemons');
     console.log(this.dadaPokemon);
+    
+}
+
+afegir(){
+  this.afegint=false;
+  return this.info; 
+  
 }
 }
