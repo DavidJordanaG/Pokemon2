@@ -12,16 +12,34 @@ export class DetallsPage implements OnInit {
   private info;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
+  private dadaPokemon;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, private dades: ApiServiceService) { 
 
   }
 
   ngOnInit() {
+    this.dades.getPokemons().subscribe(
+      (data: any) => {
+       if (data.results){
+        this.pokemons = data.results;
+       }
+      }
+    )
     
-  this.route.params.subscribe(
+
+    //localStorage.setItem('pokemons', JSON.stringify(this.pokemons));
+    //this.dadaPokemon = localStorage.getItem('pokemons');
+
+    //console.log(this.dadaPokemon);
+
+    this.route.params.subscribe(
     
           res => this.info = res.nom
         );
+    //guarda dades
+    localStorage.setItem('pokemons', this.info);
+    this.dadaPokemon = localStorage.getItem('pokemons');
+    console.log(this.dadaPokemon);
 }
 }
