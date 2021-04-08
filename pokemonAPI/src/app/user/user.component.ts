@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { DataService, User } from '../services/data.service';
 
 @Component({
-  selector: 'app-components',
-  templateUrl: './pokemon.component.html'
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
-export class CountryComponent  {
+export class UserComponent implements OnInit {
 
   @Input() user: User;
   @Input() idUser: number;
@@ -14,6 +15,8 @@ export class CountryComponent  {
   edicio:boolean = false;
 
   constructor(private dades: DataService) { }
+
+  ngOnInit(){}
 
   guardar(){
     this.dades.updateUser(this.idUser, this.user);

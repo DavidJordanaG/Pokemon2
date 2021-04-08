@@ -12,11 +12,13 @@ import { ApiServiceService } from './services/api-service.service';
 
 import { DataService } from './services/data.service';
 
+import { UserComponent } from './user/user.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule],
   providers: [ApiServiceService, DataService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent], 
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
