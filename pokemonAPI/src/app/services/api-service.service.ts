@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiServiceService {
 
   constructor(private http: HttpClient) {}
+
    getPokemons(){
     const apiURL = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -18,4 +20,5 @@ export class ApiServiceService {
 
     return this.http.get(apiURL);
   }
+
 }

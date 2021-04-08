@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiServiceService } from '../services/api-service.service';
+
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-detalls',
@@ -16,24 +17,11 @@ export class DetallsPage implements OnInit {
 
   afegint:boolean = false;
 
-  constructor(private route: ActivatedRoute, private dades: ApiServiceService) { 
+  constructor(private route: ActivatedRoute, private dades: DataService) { 
 
   }
 
   ngOnInit() {
-    this.dades.getPokemons().subscribe(
-      (data: any) => {
-       if (data.results){
-        this.pokemons = data.results;
-       }
-      }
-    )
-    
-      
-    //localStorage.setItem('pokemons', JSON.stringify(this.pokemons));
-    //this.dadaPokemon = localStorage.getItem('pokemons');
-
-    //console.log(this.dadaPokemon);
 
     this.route.params.subscribe(
     
@@ -47,9 +35,4 @@ export class DetallsPage implements OnInit {
     
 }
 
-afegir(){
-  this.afegint=false;
-  return this.info; 
-  
-}
 }
