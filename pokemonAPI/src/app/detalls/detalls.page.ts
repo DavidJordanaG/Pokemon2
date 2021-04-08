@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiServiceService } from '../services/api-service.service';
 
-import { DataService, User } from '../services/data.service';
 
 @Component({
   selector: 'app-detalls',
@@ -10,30 +10,39 @@ import { DataService, User } from '../services/data.service';
 })
 export class DetallsPage implements OnInit {
 
-  private info;
+  public info: string;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
-  private dadaPokemon;
-
-  
+  private dadaPokemon: string;
 
 
+  constructor(private route: ActivatedRoute, private dades: ApiServiceService) { }
  
-  constructor(private route: ActivatedRoute) { 
-
-  }
 
   ngOnInit() {
 
+  
+
     this.route.params.subscribe(
     
-          res => this.info = res.nom
+          res => {
+            this.info = res.nom;
+            
+            this.dades.getPokemon(this.info).subscribe(
+              (data: any) => {
+              if (data){
+                this.pokemon = data;
+                console.log(data)
+              }
+              }
+            )
+          }
         );
 
     //guarda dades
     localStorage.setItem('pokemons', this.info);
     this.dadaPokemon = localStorage.getItem('pokemons');
-    console.log(this.dadaPokemon);
+    //console.log(this.dadaPokemon);
     
 }
 
