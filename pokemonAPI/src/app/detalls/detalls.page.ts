@@ -15,12 +15,11 @@ export class DetallsPage implements OnInit {
   public pokemon: Array<any>;
   private dadaPokemon;
 
-  @Input() user: User;
-  @Input() idUser: number;
+  
 
-  edicio:boolean = false;
+
  
-  constructor(private route: ActivatedRoute, private dades: DataService) { 
+  constructor(private route: ActivatedRoute) { 
 
   }
 
@@ -38,14 +37,7 @@ export class DetallsPage implements OnInit {
     
 }
 
-guardar(){
-  this.dades.updateUser(this.idUser, this.user);
-  this.edicio = false;
-}
-eliminar(){
-  if (confirm("Segur que vols eliminar l'usuari " + this.user.name))
-    this.dades.deleteUser(this.idUser);
-}
+
   
 
 }

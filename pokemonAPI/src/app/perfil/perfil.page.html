@@ -32,6 +32,18 @@
       <ion-card-subtitle><p>Tens x Pokemons</p></ion-card-subtitle><br>
       <ion-card-subtitle><p>El teu equip és: </p></ion-card-subtitle><br>
 
+      <ion-fab vertical="center" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-button *ngIf="!afegint" (click)="afegint=!afegint"><ion-icon name="add" ></ion-icon></ion-button>
+        </ion-fab-button>
+      </ion-fab>
+      <span *ngIf="afegint">
+        Nom <input [(ngModel)]="newUser.name" />
+   
+        <button (click)="afegir()">&#10003;</button>
+        <button (click)="afegint=!afegint">&#10008;</button>  
+      </span>
+
       <ion-list>
         <ion-item>
           <ion-label>Pokémon Yellow</ion-label>
