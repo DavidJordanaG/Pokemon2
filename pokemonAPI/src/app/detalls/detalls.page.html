@@ -27,9 +27,42 @@
       </ion-card-header>
     
       <ion-card-content>
+
+
+        <div *ngIf= "pokemon">
+          <p>
+            <img [src]='pokemon.sprites.front_default'>
+            <img [src]='pokemon.sprites.back_default'>
+            <img [src]='pokemon.sprites.front_shiny'>
+          </p>
+        </div>
+
+        <h1>Habilitats</h1><br>
+        <div *ngIf= "pokemon">
+          <li *ngFor= " let a of pokemon.abilities">
+            {{a.ability.name}}
+          </li>
+        </div>
+
+        <br>
+
+        <h1>Moviments</h1><br>
+        <div *ngIf= "pokemon">
+          <li *ngFor= " let b of pokemon.moves">
+            {{b.move.name}}
+          </li>
+        </div>
+
         
-        Descripció<br>
+
         <ion-button color="light"  href='/folder/pokemon' >Tornar</ion-button>
       </ion-card-content>
     </ion-card>
+
+
+
+
+    
+
 </ion-content>
+
