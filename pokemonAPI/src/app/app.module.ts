@@ -10,12 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ApiServiceService } from './services/api-service.service';
 
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule],
-  providers: [ApiServiceService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [ApiServiceService, DataService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent], 
 })
 export class AppModule {}

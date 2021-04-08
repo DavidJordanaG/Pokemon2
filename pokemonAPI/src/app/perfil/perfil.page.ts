@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService, User } from '../services/data.service';
 
@@ -9,24 +9,27 @@ import { DataService, User } from '../services/data.service';
 })
 export class PerfilPage implements OnInit {
   public perfil: string;
+  users:Array<User>;
+  newUser:User = this.dades.newUser();
 
-  @Input() user: User;
-  @Input() idUser: number;
+  constructor(private activatedRoute: ActivatedRoute, private dades: DataService) { 
+    this.users = this.dades.getUsers();
+  }
 
-
-  edicio:boolean = false;
-  
-  constructor(private activatedRoute: ActivatedRoute, private dades: DataService) { }
+  afegint:boolean = false;
 
   ngOnInit() {
     this.perfil = this.activatedRoute.snapshot.paramMap.get('id');
   }
-  guardar(){
-    this.dades.updateUser(this.idUser, this.user);
-    this.edicio = false;
+
+  afegir(){
+    if (this.newUser.name.length>0){
+      this.dades.createUser(this.newUser);
+      this.afegint=false;    
+      this.newUser = this.dades.newUser();
+      console.log(this.newUser);
+    }
   }
-  eliminar(){
-    if (confirm("Segur que vols eliminar l'usuari " + this.user.name))
-      this.dades.deleteUser(this.idUser);
-  }
+  
+  
 }
