@@ -18,17 +18,27 @@ export class AppComponent {
   ];
 
   afegint:boolean = false;
-
+  edicio:boolean = false;
   
   constructor(private dades: DataService) { 
     this.users = this.dades.getUsers();
   }
 
   afegir(){
-    this.dades.createUser(this.newUser);
-
-    this.afegint=false;    
-    this.newUser = this.dades.newUser();
+    if (this.newUser.name.length>0){
+      this.dades.createUser(this.newUser);
+      this.afegint=false;    
+      this.newUser = this.dades.newUser();
+    }
   }
 
+  /*guardar(){
+    this.dades.updateUser(this.users, this.user);
+    this.edicio = false;
+  }
+
+  eliminar(){
+    if (confirm("Segur que vols eliminar l'usuari " + this.user.name))
+      this.dades.deleteUser(this.idUser);
+  }*/
 }

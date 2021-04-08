@@ -29,20 +29,20 @@
       <ion-card-content>
         <ion-fab vertical="center" horizontal="end" slot="fixed">
           <ion-fab-button>
-            <ion-button *ngIf="!afegint" (click)="afegint=!afegint" href='/folder/pokemon'><ion-icon name="add" ></ion-icon></ion-button>
+            <ion-button *ngIf="!afegint" (click)="afegint=!afegint"><ion-icon name="add" ></ion-icon></ion-button>
           </ion-fab-button>
         </ion-fab>
         <span *ngIf="afegint">
           Nom <input [(ngModel)]="newUser.name" />
-          
+     
           <button (click)="afegir()">&#10003;</button>
           <button (click)="afegint=!afegint">&#10008;</button>  
         </span>
+
         Descripció<br>
         <ion-button color="light"  href='/folder/pokemon' >Tornar</ion-button>
       </ion-card-content>
     </ion-card>
     
-
-
+    
 </ion-content>

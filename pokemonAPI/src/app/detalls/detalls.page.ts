@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { DataService } from '../services/data.service';
+import { DataService, User } from '../services/data.service';
 
 @Component({
   selector: 'app-detalls',
@@ -15,8 +15,11 @@ export class DetallsPage implements OnInit {
   public pokemon: Array<any>;
   private dadaPokemon;
 
-  afegint:boolean = false;
+  @Input() user: User;
+  @Input() idUser: number;
 
+  edicio:boolean = false;
+ 
   constructor(private route: ActivatedRoute, private dades: DataService) { 
 
   }
@@ -34,5 +37,15 @@ export class DetallsPage implements OnInit {
     console.log(this.dadaPokemon);
     
 }
+
+guardar(){
+  this.dades.updateUser(this.idUser, this.user);
+  this.edicio = false;
+}
+eliminar(){
+  if (confirm("Segur que vols eliminar l'usuari " + this.user.name))
+    this.dades.deleteUser(this.idUser);
+}
+  
 
 }
