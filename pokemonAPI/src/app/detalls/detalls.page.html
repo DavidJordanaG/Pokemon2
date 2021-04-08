@@ -23,7 +23,7 @@
       <ion-card-header>
         <ion-card-subtitle>Pokemon</ion-card-subtitle>
       
-        <ion-card-title>{{info}}</ion-card-title>
+        <ion-card-title style="text-transform: uppercase; text-align: center;"><h1>{{info}}</h1></ion-card-title>
       </ion-card-header>
     
       <ion-card-content>
@@ -31,9 +31,9 @@
 
         <div *ngIf= "pokemon">
           <p>
-            <img [src]='pokemon.sprites.front_default'>
-            <img [src]='pokemon.sprites.back_default'>
-            <img [src]='pokemon.sprites.front_shiny'>
+            <img style="width: 200px; margin: auto;" [src]='pokemon.sprites.front_default'>
+            <img style="width: 200px; margin: auto;" [src]='pokemon.sprites.back_default'>
+            <img style="width: 200px; margin: auto;" [src]='pokemon.sprites.front_shiny'>
           </p>
         </div>
 
@@ -53,6 +53,7 @@
           </li>
         </div>
 
+        <ion-button><button (click)="guardar()" style="background-color: rgb(37, 156, 253);">&#10003;</button></ion-button>
         
 
         <ion-button color="light"  href='/folder/pokemon' >Tornar</ion-button>

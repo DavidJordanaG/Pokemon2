@@ -13,15 +13,13 @@ export class DetallsPage implements OnInit {
   public info: string;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
-  private dadaPokemon: string;
+  public dadaPokemon: string;
 
 
   constructor(private route: ActivatedRoute, private dades: ApiServiceService) { }
  
 
   ngOnInit() {
-
-  
 
     this.route.params.subscribe(
     
@@ -39,14 +37,15 @@ export class DetallsPage implements OnInit {
           }
         );
 
-    //guarda dades
-    localStorage.setItem('pokemons', this.info);
-    this.dadaPokemon = localStorage.getItem('pokemons');
-    //console.log(this.dadaPokemon);
-    
 }
-
-
+//guarda dades
+guardar(){
+  localStorage.setItem('pokemons', this.info);
+  this.dadaPokemon = localStorage.getItem('pokemons');
+  console.log(this.dadaPokemon);
   
+  return this.dadaPokemon;
+  
+}
 
 }

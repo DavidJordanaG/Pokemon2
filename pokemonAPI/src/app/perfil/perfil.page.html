@@ -37,17 +37,20 @@
           <ion-button *ngIf="!afegint" (click)="afegint=!afegint"><ion-icon name="add" ></ion-icon></ion-button>
         </ion-fab-button>
       </ion-fab>
+      <button *ngIf="!afegint" (click)="afegint=!afegint">&#10010;</button>
+
       <span *ngIf="afegint">
-        Nom <input [(ngModel)]="newUser.name" />
-        
+        <input [(ngModel)]="newUser.name" />
+       
         <button (click)="afegir()">&#10003;</button>
         <button (click)="afegint=!afegint">&#10008;</button>  
       </span>
+      <br/>
+      <user *ngFor="let user of users; let i=index" [user]="user" [idUser]="i"></user> 
       
-
       <ion-list>
         <ion-item>
-          <ion-label> Pokémon Yellow</ion-label>
+          <ion-label> {{dadaPokemon}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Mega Man X</ion-label>
