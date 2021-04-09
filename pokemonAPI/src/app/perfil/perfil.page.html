@@ -39,7 +39,8 @@
       </ion-fab>
       <button *ngIf="!afegint" (click)="afegint=!afegint">&#10010;</button>
 
-      <span *ngIf="afegint">
+      <span *ngIf="afegint" >
+        
         <input [(ngModel)]="newUser.name" />
        
         <button (click)="afegir()">&#10003;</button>
