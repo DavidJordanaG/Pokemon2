@@ -56,7 +56,7 @@
                 <span *ngIf="edicio"> 
                   <input [(ngModel)]="user.name" />
                   <button (click)="edicio=!edicio">&#10008;</button>
-                  <button (click)="guardar()">&#10003;</button>
+                  <button (click)="guardarDades" (click)="guardar()">&#10003;</button>
                 </span>
                 <!-- estem en mode visualitzacio -->
                 <span *ngIf="!edicio">

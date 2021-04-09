@@ -39,13 +39,13 @@ export class DetallsPage implements OnInit {
 
 }
 //guarda dades
-/*guardar(){
+guardarDades(){
   localStorage.setItem('pokemons', this.info);
   this.dadaPokemon = localStorage.getItem('pokemons');
   console.log(this.dadaPokemon);
 
   return this.dadaPokemon;
   
-}*/
+}
 
 }

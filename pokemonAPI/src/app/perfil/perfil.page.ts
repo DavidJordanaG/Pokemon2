@@ -42,8 +42,6 @@ export class PerfilPage implements OnInit {
           alert('Només es pot 6 pokemons per equip');
         }
       }
-      
-      
     }
   }
 
