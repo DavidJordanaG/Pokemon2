@@ -47,7 +47,12 @@
       </span>
       <br/>
       
-      
+      <ul>
+        <!-- cada element rep d'entrada el user i l'index 
+        AQUI ES ON FALLA, EL COMPONENT EM DIU QUE NO ESTÀ INTEGRAT I SI HO ESTÀ, 
+        AIXÒ ÉS PER MOSTRAR CADA POKEMON NOU. Però al html de fora si que va, no ho entenc-->
+        <user *ngFor="let user of users; let i=index" [user]="user" [idUser]="i"></user> 
+      </ul>
       
       <ion-list>
         <ion-item>
