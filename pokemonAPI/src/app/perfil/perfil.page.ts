@@ -28,15 +28,21 @@ export class PerfilPage implements OnInit {
 
   afegir(){
     if (this.newUser.name.length>0){
-      if (this.users.length <= 5) {
-        this.dades.createUser(this.newUser);
-        this.afegint=false;    
-        this.newUser = this.dades.newUser();
-        console.log(this.newUser);
+      if (this.dades.existUser(this.newUser.name)) {
+        alert("el pokemon ja és a la llista");
       }
       else{
-        alert('Només es pot 6 pokemons per equip');
+        if (this.users.length <= 5) {
+          this.dades.createUser(this.newUser);
+          this.afegint=false;    
+          this.newUser = this.dades.newUser();
+          console.log(this.newUser);
+        }
+        else{
+          alert('Només es pot 6 pokemons per equip');
+        }
       }
+      
       
     }
   }
@@ -46,7 +52,7 @@ export class PerfilPage implements OnInit {
     this.edicio = false;
   }
   eliminar(){
-    if (confirm("Segur que vols eliminar el país " + this.user + " ?"))
+    if (confirm("Segur que vols eliminar el pokemon " + this.user + " ?"))
       this.dades.deleteUser(this.idUser);
       
   }

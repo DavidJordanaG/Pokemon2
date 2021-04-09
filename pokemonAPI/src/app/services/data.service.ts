@@ -40,4 +40,13 @@ export class DataService {
   newUser():User{
     return <User>{name: ''};
   }
+  existUser(id:string):boolean{
+    let found = false;
+    let i = 0;
+    while (i<this.userList.length && !found) {
+      found = this.userList[i].name == id;
+      i++
+    }
+    return found;
+  }
 }
