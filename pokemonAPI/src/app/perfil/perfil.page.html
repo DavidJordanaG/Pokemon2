@@ -48,9 +48,8 @@
       <br/>
       
       <ul>
-        <ion-list>
-          <ion-item>
-            <ion-label>
+        
+            
               <p *ngFor="let user of users; let i=index" >
                 <!--estem en mode edicio -->
                 <span *ngIf="edicio"> 
@@ -60,17 +59,18 @@
                 </span>
                 <!-- estem en mode visualitzacio -->
                 <span *ngIf="!edicio">
-                
-                  {{user.name}} 
-                  
+                  <ion-list>
+                    <ion-item>
+                      <ion-label> {{user.name}} 
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
                   <button (click)="edicio=!edicio">&#9998;</button>
                 </span>
                 
                 <button (click)="eliminar()">&#9986;</button>
               </p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+            
       </ul>
       
       <ion-list>
