@@ -12,6 +12,10 @@ export class PerfilPage implements OnInit {
   users:Array<User>;
   newUser:User = this.dades.newUser();
 
+  @Input() user: User;
+  @Input() idUser: number;
+
+  edicio:boolean = false;
   constructor(private activatedRoute: ActivatedRoute, private dades: DataService) { 
     this.users = this.dades.getUsers();
   }
@@ -29,6 +33,16 @@ export class PerfilPage implements OnInit {
       this.newUser = this.dades.newUser();
       console.log(this.newUser);
     }
+  }
+
+  guardar(){
+    this.dades.updateUser(this.idUser, this.user);
+    this.edicio = false;
+  }
+  eliminar(){
+    if (confirm("Segur que vols eliminar el país " + this.user + " ?"))
+      this.dades.deleteUser(this.idUser);
+      
   }
   
   

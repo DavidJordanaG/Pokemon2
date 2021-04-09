@@ -35,8 +35,7 @@ export class DataService {
   }
   deleteUser(idUser:number):void {
     this.userList.splice(idUser,1);
-    this.dades.setItem('userData', JSON.stringify(this.userList));
-    if (this.userList.length==0) this.dades.removeItem('appData');
+    this.dades.removeItem('userData');
   }
   newUser():User{
     return <User>{name: ''};

@@ -48,27 +48,34 @@
       <br/>
       
       <ul>
-        <!-- cada element rep d'entrada el user i l'index 
-        AQUI ES ON FALLA, EL COMPONENT EM DIU QUE NO ESTÀ INTEGRAT I SI HO ESTÀ, 
-        AIXÒ ÉS PER MOSTRAR CADA POKEMON NOU. Però al html de fora si que va, no ho entenc-->
-        <user *ngFor="let user of users; let i=index" [user]="user" [idUser]="i"></user> 
+        <ion-list>
+          <ion-item>
+            <ion-label>
+              <p *ngFor="let user of users; let i=index" >
+                <!--estem en mode edicio -->
+                <span *ngIf="edicio"> 
+                  <input [(ngModel)]="user.name" />
+                  <button (click)="edicio=!edicio">&#10008;</button>
+                  <button (click)="guardar()">&#10003;</button>
+                </span>
+                <!-- estem en mode visualitzacio -->
+                <span *ngIf="!edicio">
+                
+                  {{user.name}} 
+                  
+                  <button (click)="edicio=!edicio">&#9998;</button>
+                </span>
+                
+                <button (click)="eliminar()">&#9986;</button>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </ul>
       
       <ion-list>
         <ion-item>
-          <ion-label> {{dadaPokemon}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Mega Man X</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>The Legend of Zelda</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Pac-Man</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Super Mario World</ion-label>
+          <ion-label> {{dadaPokemon}} </ion-label>
         </ion-item>
       </ion-list>
       <br>
