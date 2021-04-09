@@ -15,6 +15,8 @@ export class PerfilPage implements OnInit {
   @Input() user: User;
   @Input() idUser: number;
 
+  public dadaPokemon: string;
+
   edicio:boolean = false;
   constructor(private activatedRoute: ActivatedRoute, private dades: DataService) { 
     this.users = this.dades.getUsers();
@@ -53,6 +55,12 @@ export class PerfilPage implements OnInit {
     if (confirm("Segur que vols eliminar el pokemon " + this.user + " ?"))
       this.dades.deleteUser(this.idUser);
       
+  }
+
+  recuperar(){
+    this.dadaPokemon = localStorage.getItem('pokemons');
+    console.log(this.dadaPokemon);
+    return this.dadaPokemon;
   }
   
   

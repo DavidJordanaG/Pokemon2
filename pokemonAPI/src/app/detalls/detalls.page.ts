@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service';
-
+import { DataService, User } from '../services/data.service';
 
 @Component({
   selector: 'app-detalls',
@@ -13,10 +13,11 @@ export class DetallsPage implements OnInit {
   public info: string;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
-  public dadaPokemon: string;
+  
+  
 
 
-  constructor(private route: ActivatedRoute, private dades: ApiServiceService) { }
+  constructor(private route: ActivatedRoute, private dades: ApiServiceService, private dada: DataService) { }
  
 
   ngOnInit() {
@@ -41,10 +42,6 @@ export class DetallsPage implements OnInit {
 //guarda dades
 guardarDades(){
   localStorage.setItem('pokemons', this.info);
-  this.dadaPokemon = localStorage.getItem('pokemons');
-  console.log(this.dadaPokemon);
-
-  return this.dadaPokemon;
   
 }
 
