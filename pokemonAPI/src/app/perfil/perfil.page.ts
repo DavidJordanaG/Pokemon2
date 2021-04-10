@@ -55,13 +55,6 @@ export class PerfilPage implements OnInit {
     if (confirm("Segur que vols eliminar el pokemon " + this.user + " ?"))
       this.dades.deleteUser(this.idUser);
       
-  }
-
-  recuperar(){
-    this.dadaPokemon = localStorage.getItem('pokemons');
-    console.log(this.dadaPokemon);
-    return this.dadaPokemon;
-  }
-  
+  } 
   
 }

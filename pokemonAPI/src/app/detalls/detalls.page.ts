@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { ApiServiceService } from '../services/api-service.service';
 import { DataService, User } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalls',
@@ -13,11 +15,14 @@ export class DetallsPage implements OnInit {
   public info: string;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
+  users:Array<User>;
+  @Output() close = new EventEmitter<number>();
   
-  
+  edicio:boolean = false;
 
-
-  constructor(private route: ActivatedRoute, private dades: ApiServiceService, private dada: DataService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private dades: ApiServiceService, private dada: DataService) {
+    this.users = this.dada.getUsers();
+   }
  
 
   ngOnInit() {
@@ -39,10 +44,34 @@ export class DetallsPage implements OnInit {
         );
 
 }
-//guarda dades
-guardarDades(){
-  localStorage.setItem('pokemons', this.info);
-  
+afegir(){
+ 
+   
+    let newUser = {
+      
+      name: this.info,
+      
+    };
+    if (newUser.name.length>0) {
+      if (this.dada.existUser(newUser.name)) {
+        alert("el pokemon ja és a la llista");
+      }
+      else{
+        if (this.users.length <= 5) {
+          this.dada.createUser(newUser);
+          console.log(newUser);
+        }
+        else{
+          alert('Només es pot 6 pokemons per equip');
+        }
+      }
+    }
+    
+}
+
+amagar(){
+  this.close.emit();
+  console.log("aaa");
 }
 
 }

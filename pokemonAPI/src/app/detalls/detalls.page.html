@@ -15,12 +15,15 @@
   </ion-header>
 
   <div id="container">
+    
     <strong class="capitalize">{{ detalls }}</strong>
     <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
     -->
     </div>
     <ion-card>
+      <button (click)="amagar()">&#10008;</button> <br/>
       <ion-card-header>
+        
         <ion-card-subtitle>Pokemon</ion-card-subtitle>
       
         <ion-card-title style="text-transform: uppercase; text-align: center;"><h1>{{info}}</h1></ion-card-title>
@@ -53,7 +56,7 @@
           </li>
         </div>
         
-        <ion-button href='/folder/perfil'><button  (click)="guardarDades" (click)="guardar"  style="background-color: rgb(37, 156, 253);">&#10003;</button></ion-button>
+        <br/><ion-button href='/folder/perfil'><button (click)="afegir()">&#10010;</button></ion-button>
 
         <ion-button color="light"  href='/folder/pokemon' >Tornar</ion-button>
       </ion-card-content>

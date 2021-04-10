@@ -32,11 +32,7 @@
       <ion-card-subtitle><h2 style="font-size: 30px;">Tens {{users.length}} Pokemons</h2></ion-card-subtitle><br>
       <ion-card-subtitle><p>El teu equip és: </p></ion-card-subtitle><br>
 
-      <ion-fab vertical="center" horizontal="end" slot="fixed">
-        <ion-fab-button>
-          <ion-button *ngIf="!afegint" (click)="afegint=!afegint"><ion-icon name="add" ></ion-icon></ion-button>
-        </ion-fab-button>
-      </ion-fab>
+      
       <button *ngIf="!afegint" (click)="afegint=!afegint">&#10010;</button>
 
       <span *ngIf="afegint" >
@@ -73,12 +69,6 @@
               </p>
             
       </ul>
-      
-      <ion-list>
-        <ion-item>
-          <ion-label > Pokemon triat: {{dadaPokemon}}</ion-label>
-        </ion-item>
-      </ion-list>
       <br>
 
       <ion-button color="light" expand="full" href='/folder/pokemon' >Seguir triant</ion-button>
