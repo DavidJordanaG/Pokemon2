@@ -15,6 +15,10 @@ export class DetallsPage implements OnInit {
   public info: string;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
+  public habilitats: Array<any>
+  public moviments: Array<any>
+  public fotos: Array<any>
+
   users:Array<User>;
   @Output() close = new EventEmitter<number>();
   
@@ -36,7 +40,11 @@ export class DetallsPage implements OnInit {
               (data: any) => {
               if (data){
                 this.pokemon = data;
-                console.log(data)
+
+                this.fotos = data.sprites
+                this.habilitats = data.abilities
+                this.moviments = data.moves
+                
               }
               }
             )
