@@ -18,6 +18,7 @@ export class DetallsPage implements OnInit {
   public habilitats: Array<any>
   public moviments: Array<any>
   public fotos: Array<any>
+  public foto1: string;
 
   users:Array<User>;
   @Output() close = new EventEmitter<number>();
@@ -52,6 +53,13 @@ export class DetallsPage implements OnInit {
         );
 
 }
+
+imatges1(fotos:any){
+
+  return fotos.front_default
+  
+}
+
 afegir(){
  
    
