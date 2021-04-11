@@ -15,9 +15,9 @@ export class DetallsPage implements OnInit {
   public info: string;
   public pokemons: Array<any>;
   public pokemon: Array<any>;
-  public habilitats: Array<any>
-  public moviments: Array<any>
-  public fotos: Array<any>
+  public habilitats: any
+  public moviments: any
+  public fotos: any
   public foto1: string;
 
   users:Array<User>;
@@ -45,6 +45,7 @@ export class DetallsPage implements OnInit {
                 this.fotos = data.sprites
                 this.habilitats = data.abilities
                 this.moviments = data.moves
+                
                 
               }
               }
