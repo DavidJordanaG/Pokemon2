@@ -41,7 +41,6 @@ export class DetallsPage implements OnInit {
               (data: any) => {
               if (data){
                 this.pokemon = data;
-
                 this.fotos = data.sprites
                 this.habilitats = data.abilities
                 this.moviments = data.moves
