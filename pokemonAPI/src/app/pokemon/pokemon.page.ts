@@ -22,13 +22,15 @@ export class PokemonPage implements OnInit {
        }
       }
     )
-
+    function handleError(error) {
+      console.log(error)
+    }
     this.dades.getPokemon("pokemon").subscribe(
       (data: any) => {
        if (data.results){
         this.pokemon = data.results;
        }
-      }
+      } ,(error) => handleError(error)
     )
   }
   
