@@ -85,9 +85,4 @@ afegir(){
     
 }
 
-amagar(){
-  this.close.emit();
-  console.log("aaa");
-}
-
 }
