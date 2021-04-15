@@ -1,4 +1,4 @@
-var firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyCjQT2GGfpw4BBSno4oE9_JjiJKfXgjit8",
     authDomain: "pokemon-cccc2.firebaseapp.com",
     projectId: "pokemon-cccc2",
