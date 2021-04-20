@@ -33,14 +33,14 @@
       <ion-card-subtitle><p>El teu equip és: </p></ion-card-subtitle><br>
 
       
-      <button *ngIf="!afegint" (click)="afegint=!afegint">&#10010;</button>
+      <ion-button *ngIf="!afegint" (click)="afegint=!afegint">&#10010;</ion-button>
 
       <span *ngIf="afegint" >
         
         <input [(ngModel)]="newUser.name" />
        
-        <button (click)="afegir()">&#10003;</button>
-        <button (click)="afegint=!afegint">&#10008;</button>  
+        <ion-button (click)="afegir()">&#10003;</ion-button>
+        <ion-button (click)="afegint=!afegint">&#10008;</ion-button>  
       </span>
       <br/>
       
@@ -51,8 +51,8 @@
                 <!--estem en mode edicio -->
                 <span *ngIf="edicio"> 
                   <input [(ngModel)]="user.name" />
-                  <button (click)="edicio=!edicio">&#10008;</button>
-                  <button (click)="guardar()">&#10003;</button>
+                  <ion-button (click)="edicio=!edicio">&#10008;</ion-button>
+                  <ion-button (click)="guardar()">&#10003;</ion-button>
                 </span>
                 <!-- estem en mode visualitzacio -->
                 <span *ngIf="!edicio">
@@ -62,10 +62,10 @@
                       </ion-label>
                     </ion-item>
                   </ion-list>
-                  <button (click)="edicio=!edicio">&#9998;</button>
+                  <ion-button (click)="edicio=!edicio">&#9998;</ion-button>
                 </span>
                 
-                <button (click)="eliminar()">&#9986;</button>
+                <ion-button (click)="eliminar()">&#9986;</ion-button>
               </p>
             
       </ul>
