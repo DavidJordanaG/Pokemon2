@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { ApiServiceService } from '../services/api-service.service';
-import { AuthenticateService } from '../services/authentication.service';
+//import { AuthenticateService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   errorMessage: string = '';
 
   constructor(private activatedRoute: ActivatedRoute, private dades: ApiServiceService, private navCtrl: NavController,
-    private authService: AuthenticateService,
+    //private authService: AuthenticateService,
     private formBuilder: FormBuilder ) {
      
    }
@@ -46,7 +46,7 @@ validation_messages = {
   ]
 };
 
-loginUser(value) {
+/*loginUser(value) {
   this.authService.loginUser(value)
     .then(res => {
       console.log(res);
@@ -60,5 +60,5 @@ loginUser(value) {
 goToRegisterPage() {
   this.navCtrl.navigateForward('/register');
 }
-
+*/
 }

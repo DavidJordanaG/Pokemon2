@@ -15,7 +15,7 @@ import { DataService } from './services/data.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { firebaseConfig } from './credentials';
-import { AuthenticateService } from './services/authentication.service';
+//import { AuthenticateService } from './services/authentication.service';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { AuthenticateService } from './services/authentication.service';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule
   ],
-  providers: [ApiServiceService, DataService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthenticateService],
+  providers: [ApiServiceService, DataService, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

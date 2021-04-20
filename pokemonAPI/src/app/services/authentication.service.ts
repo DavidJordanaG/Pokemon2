@@ -1,5 +1,5 @@
 // authentication.service.ts
-import { Injectable } from "@angular/core";
+/*import { Injectable } from "@angular/core";
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
@@ -48,4 +48,4 @@ export class AuthenticateService {
   userDetails() {
     return this.afAuth.user
   }
-}
+}*/
