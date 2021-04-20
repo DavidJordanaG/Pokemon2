@@ -12,8 +12,8 @@ import { ApiServiceService } from './services/api-service.service';
 
 import { DataService } from './services/data.service';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { firebaseConfig } from './credentials';
 
 
