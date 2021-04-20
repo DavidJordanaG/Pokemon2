@@ -1,28 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"></ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
 
-  <div id="container">
-    <strong class="capitalize">Login</strong>
-    <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    -->
+    <ion-item>
+      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
     </div>
 
- 
-  <!--<p>{{pokemons|json}}</p>-->
+    <ion-item>
+      <ion-label position="floating" color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
 
-  
+    <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Log In</ion-button>
 
+    <label class="error-message">{{errorMessage}}</label>
+  </form>
+  <p class="go-to-register">
+    No tens un compte? <a (click)="goToRegisterPage()">Registra't.</a>
+  </p>
 </ion-content>
