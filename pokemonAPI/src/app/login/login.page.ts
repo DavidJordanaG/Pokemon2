@@ -15,7 +15,9 @@ export class LoginPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   
-  constructor(private activatedRoute: ActivatedRoute, private dades: ApiServiceService,
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private dades: ApiServiceService,
     private navCtrl: NavController,
     private authService: AuthenticateService,
     private formBuilder: FormBuilder) { }
