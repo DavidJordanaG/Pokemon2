@@ -1,51 +1,48 @@
-// authentication.service.ts
-import { Injectable } from "@angular/core";
+import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class AuthenticateService {
+  private user; 
+  public userDetails: firebase = null; 
+  public displayName = '';
 
-  constructor(
-    private afAuth: AngularFireAuth
-  ) { }
-
-  registerUser(value) {
-    return new Promise<any>((resolve, reject) => {
-
-      this.afAuth.createUserWithEmailAndPassword(value.email, value.password)
-        .then(
-          res => resolve(res),
-          err => reject(err))
-    })
-
-  }
-
-  loginUser(value) {
-    return new Promise<any>((resolve, reject) => {
-      this.afAuth.signInWithEmailAndPassword(value.email, value.password)
-        .then(
-          res => resolve(res),
-          err => reject(err))
-    })
-  }
-
-  logoutUser() {
-    return new Promise((resolve, reject) => {
-      if (this.afAuth.currentUser) {
-        this.afAuth.signOut()
-          .then(() => {
-            console.log("LOG Out");
-            
-          }).catch((error) => {
-            reject();
-          });
+  constructor(private afAuth: AngularFireAuth, private router: Router) { 
+    this.user = afAuth.authState;
+    this.user.subscribe(
+      // subscribim una funció per comprobar si l'usuari ha fet login
+      // actualitzem les dades locals si s'ha fet el login
+      (user) => { 
+        if (user) {
+          this.userDetails = user;
+          this.displayName = (this.userDetails.displayName) ?
+          this.userDetails.displayName : this.userDetails.email; console.log(this.userDetails);
+          this.router.navigate(['/']); 
+        } else {
+          this.userDetails = null; 
+        }
       }
-    })
+    ); 
   }
 
-  userDetails() {
-    return this.afAuth.user
+  signInRegular(email: string, password: string) {
+    return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
+  loginRegular(email: string, password: string) {
+    return this.afAuth.signInWithEmailAndPassword(email, password); 
+  }
+  get isLoggedIn() {
+    if (this.userDetails == null ) {
+      return false;
+    } else {
+      return true; 
+    }
+  }
+  logout() {
+    console.log('Logout');
+    this.afAuth.signOut()
+      .then((res) => this.router.navigate(['/login']));
+  } 
 }

@@ -1,65 +1,43 @@
+// register.page.ts
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
-import { ApiServiceService } from '../services/api-service.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthenticateService } from '../services/authentication.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
-  
+export class RegisterPage{
+  email = ""
+  password = ""
+  password2 = ""
+
   validations_form: FormGroup;
   errorMessage: string = '';
-  
-  constructor(private activatedRoute: ActivatedRoute, private dades: ApiServiceService,
-    private navCtrl: NavController,
+  successMessage: string = '';
+
+  constructor(
     private authService: AuthenticateService,
-    private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-
-    this.validations_form = this.formBuilder.group({
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      password: new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required
-      ])),
-    });
+    private router: Router
+  ) { }
+  public register() {
+    if (this.password == this.password2) {
+      this.authService
+        .signInRegular(this.email, this.password)
+        .then((res) => {
+          console.log(res);
+          this.router.navigate(['/']);
+        })
+        .catch((err) => { 
+          alert('Error: ' + err); 
+          console.log('error: ' + err); 
+          this.password = '';
+        }); 
+    } else {
+      alert ("The passwords are not equal")
+    }
   }
-
-
-  validation_messages = {
-    'email': [
-      { type: 'required', message: 'Email és obligatori.' },
-      { type: 'pattern', message: 'Introdueix un email vàlid.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password és obligatori.' },
-      { type: 'minlength', message: 'Password ha de contenir almenys 5 caràcters.' }
-    ]
-  };
-
-
-  loginUser(value) {
-    /*this.authService.loginUser(value)
-      .then(res => {
-        console.log(res);
-        this.errorMessage = "";
-        this.navCtrl.navigateForward('/XXXXXXXX'); // posar una ruta de la nostra app
-      }, err => {
-        this.errorMessage = err.message;
-      })*/
-  }
-
-  goToRegisterPage() {
-    this.navCtrl.navigateForward('/register');
-  }
-  
 }
