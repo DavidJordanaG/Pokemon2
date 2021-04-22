@@ -1,36 +1,13 @@
-<ion-content class="ion-padding">
-  <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+<div>
+  <hr/>
+  <h3>Register Page</h3>
+  <form (ngSubmit)="register()" #registerForm>
+    <input type="text" placeholder="Email" name="email" [(ngModel)]="email" required /><br/>
+    <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required/><br/>
+    <input type="password" placeholder="Password" name="password2" [(ngModel)]="password2" required/><br/>
 
-    <ion-item>
-      <ion-label position="floating" color="primary">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
-    </ion-item>
-    <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.email">
-        <div class="error-message"
-          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
-          {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
-
-    <ion-item>
-      <ion-label position="floating" color="primary">Password</ion-label>
-      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
-    </ion-item>
-    <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.password">
-        <div class="error-message"
-          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
-          {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
-
-
-    <ion-button class="submit-btn" type="submit" [disabled]="!validations_form.valid">Registrar</ion-button>
-    <label class="error-message">{{errorMessage}}</label>
-    <label class="success-message">{{successMessage}}</label>
+    <button type="submit" [disabled]="false"> Register
+    </button>
   </form>
-  <p class="go-to-login">Ja tens un compte? <a (click)="goLoginPage()">Prova de fer el Login.</a></p>
-</ion-content>
+
+</div>
