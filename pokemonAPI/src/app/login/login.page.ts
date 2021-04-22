@@ -15,7 +15,9 @@ export class LoginPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
   
-  constructor(private activatedRoute: ActivatedRoute, private dades: ApiServiceService,
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private dades: ApiServiceService,
     private navCtrl: NavController,
     private authService: AuthenticateService,
     private formBuilder: FormBuilder) { }
@@ -48,14 +50,14 @@ export class LoginPage implements OnInit {
 
 
   loginUser(value) {
-    /*this.authService.loginUser(value)
+    this.authService.loginUser(value)
       .then(res => {
         console.log(res);
         this.errorMessage = "";
         this.navCtrl.navigateForward('/XXXXXXXX'); // posar una ruta de la nostra app
       }, err => {
         this.errorMessage = err.message;
-      })*/
+      })
   }
 
   goToRegisterPage() {
