@@ -43,6 +43,6 @@ export class AuthenticateService {
   logout() {
     console.log('Logout');
     this.afAuth.signOut()
-      .then((res) => this.router.navigate(['/login']));
+      .then((res) => this.router.navigate(['/folder/login']));
   } 
 }
