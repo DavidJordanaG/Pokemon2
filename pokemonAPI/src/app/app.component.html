@@ -10,14 +10,14 @@
           <ion-list-header>Pokemon API</ion-list-header>
           <ion-note>App de mostra de Pokemons</ion-note>
           
-          <div class="right" *ngIf="authentication.isLoggedIn">
-            <h3 *ngIf="authentication.isLoggedIn">
+          <div class="right" *ngIf="authentication.isLoggedIn" >
+            <p *ngIf="authentication.isLoggedIn">   &nbsp;&nbsp;&nbsp;
               {{authentication.displayName}}
-            </h3>
+            </p>&nbsp;
             <ion-button (click)="authentication.logout()">Logout</ion-button>
           </div>   
           <div class="right" *ngIf="!authentication.isLoggedIn" >
-            <ion-menu-toggle auto-hide="false">
+            <ion-menu-toggle auto-hide="false">&nbsp;
               <ion-button routerLink='/folder/login' >Login</ion-button>
               </ion-menu-toggle>
             

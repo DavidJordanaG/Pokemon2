@@ -2,6 +2,7 @@ import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/cor
 import { ActivatedRoute } from '@angular/router';
 import { DataService, User } from '../services/data.service';
 
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
