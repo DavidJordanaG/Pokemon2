@@ -1,13 +1,44 @@
-<div>
-  <hr/>
-  <h3>Register Page</h3>
-  <form (ngSubmit)="register()" #registerForm>
-    <input type="text" placeholder="Email" name="email" [(ngModel)]="email" required /><br/>
-    <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required/><br/>
-    <input type="password" placeholder="Password" name="password2" [(ngModel)]="password2" required/><br/>
 
-    <button type="submit" [disabled]="false"> Register
-    </button>
-  </form>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-</div>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+
+  <ion-card>
+    <ion-card-header>
+      
+      <ion-card-title>Register</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div>
+        <hr/>
+        <form (ngSubmit)="register()" #registerForm>
+    
+          <ion-input type="text" placeholder="Email" name= "email" [(ngModel)]="email" required ></ion-input>
+          <ion-input type="password" placeholder="Password" name= "password" [(ngModel)]="password" required ></ion-input>
+          <ion-input type="password" placeholder="Password" name= "password2" [(ngModel)]="password2" required ></ion-input>
+          <ion-button type="submit" [disabled]="false"> Register
+          </ion-button>
+        </form>
+      
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+
+
+</ion-content>
