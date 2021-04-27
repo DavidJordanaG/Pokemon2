@@ -33,7 +33,7 @@ export class AuthenticateService {
   loginRegular(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password); 
   }
-  get isLoggedIn() {
+  isLoggedIn() {
     if (this.userDetails == null ) {
       return false;
     } else {
