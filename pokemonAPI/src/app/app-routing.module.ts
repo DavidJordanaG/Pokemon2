@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from './authentication.guard';
+import { CanActivate} from '@angular/router'; 
+
 
 const routes: Routes = [
   {
@@ -13,11 +16,14 @@ const routes: Routes = [
   },
   {
     path: 'folder/perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule) ,
+    canActivate: [AuthenticationGuard]
+    
   },
   {
     path: 'folder/pokemon',
-    loadChildren: () => import('./pokemon/pokemon.module').then( m => m.PokemonPageModule)
+    loadChildren: () => import('./pokemon/pokemon.module').then( m => m.PokemonPageModule),
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'folder/login',
