@@ -14,14 +14,13 @@
             <h3 *ngIf="authentication.isLoggedIn">
               {{authentication.displayName}}
             </h3>
-            <button (click)="authentication.logout()">
-              logout
-            </button>
+            <ion-button (click)="authentication.logout()">Logout</ion-button>
           </div>   
-          <div class="right" *ngIf="!authentication.isLoggedIn">
-            <button routerLink="/login">
-              login
-            </button>
+          <div class="right" *ngIf="!authentication.isLoggedIn" >
+            <ion-menu-toggle auto-hide="false">
+              <ion-button routerLink='/folder/login' >Login</ion-button>
+              </ion-menu-toggle>
+            
           </div>  
           
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
