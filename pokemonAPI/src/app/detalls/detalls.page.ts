@@ -71,14 +71,12 @@ afegir(){
         alert("el pokemon ja és a la llista");
       }
       else{
-        if (this.users.length <= 5) {
+        
           this.dada.createUser(newUser);
           console.log(newUser);
         }
-        else{
-          alert('Només es pot 6 pokemons per equip');
-        }
-      }
+        
+          
     
       
   }
