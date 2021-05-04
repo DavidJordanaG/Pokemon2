@@ -68,7 +68,7 @@ afegir(){
       name: this.info,
       
     };
-    if (newUser.name.length>0) {
+    
       if (this.dada.existUser(newUser.name)) {
         alert("el pokemon ja és a la llista");
       }
@@ -81,8 +81,9 @@ afegir(){
           alert('Només es pot 6 pokemons per equip');
         }
       }
-    }
+    
+      
+  }
     
 }
 
-}

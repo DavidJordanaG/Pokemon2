@@ -21,9 +21,9 @@ export class DataService {
 
   constructor(@Inject(DADES_LOCALS) public dades: Storage, private db: AngularFireDatabase, 
   public authentication: AuthenticateService) {
-    let ul=this.dades.getItem('userData');
-    if (!ul) this.userList = [];
-    else this.userList = JSON.parse(ul);
+    //let ul=this.dades.getItem('userData');
+    //if (!ul) this.userList = [];
+    //else this.userList = JSON.parse(ul);
   }
 
   getUsers():any{

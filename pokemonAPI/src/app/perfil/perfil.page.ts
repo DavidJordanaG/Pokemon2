@@ -20,32 +20,43 @@ export class PerfilPage implements OnInit {
 
   edicio:boolean = false;
   constructor(private activatedRoute: ActivatedRoute, private dades: DataService) { 
-    this.users = this.dades.getUsers();
   }
 
   afegint:boolean = false;
 
   ngOnInit() {
-    this.perfil = this.activatedRoute.snapshot.paramMap.get('id');
+    //this.perfil = this.activatedRoute.snapshot.paramMap.get('id');
+   this.activatedRoute.params.subscribe(
+      res => {
+        this.idUser = res.idUser;
+      }
+    );
+      this.dades.getUsers().subscribe(
+        res => {
+            this.users = res;
+          }
+        )
   }
+
 
   afegir(){
     if (this.newUser.name.length>0){
-      if (this.dades.existUser(this.newUser.name)) {
-        alert("el pokemon ja és a la llista");
+    if (this.dades.existUser(this.newUser.name)) {
+      alert("el pokemon ja és a la llista");
+    }
+    else{
+      if (this.users.length <= 5) {
+        this.dades.createUser(this.newUser);
+        this.afegint=false;    
+        this.newUser = this.dades.newUser();
+        console.log(this.newUser);
       }
       else{
-        if (this.users.length <= 5) {
-          this.dades.createUser(this.newUser);
-          this.afegint=false;    
-          this.newUser = this.dades.newUser();
-          console.log(this.newUser);
-        }
-        else{
-          alert('Només es pot 6 pokemons per equip');
-        }
+        alert('Només es pot 6 pokemons per equip');
       }
     }
+  }
+    
   }
 
   guardar(){
@@ -54,7 +65,7 @@ export class PerfilPage implements OnInit {
   }
   eliminar(){
     if (confirm("Segur que vols eliminar el pokemon " + this.user + " ?"))
-      this.dades.deleteUser(this.idUser);
+      this.dades.deleteUser(this.idUser); 
       
   } 
   
