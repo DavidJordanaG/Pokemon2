@@ -44,8 +44,6 @@ export class DetallsPage implements OnInit {
                 this.fotos = data.sprites
                 this.habilitats = data.abilities
                 this.moviments = data.moves
-                
-                
               }
               }
             )
