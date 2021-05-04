@@ -14,7 +14,7 @@ export class PerfilPage implements OnInit {
   newUser:User = this.dades.newUser();
 
   @Input() user: User;
-  @Input() idUser: number;
+  @Input() idUser: string;
 
   public dadaPokemon: string;
 
